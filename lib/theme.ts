@@ -1,30 +1,31 @@
 const theme = {
   typography: {
     headline: {
-      fontFamily: "Inter",
+      fontFamily: "InterSemiBold",
       fontSize: 30,
       fontWeight: "600",
       lineHeight: 38,
     },
-    semibold: {
-      fontFamily: "Inter",
+    title: {
+      fontFamily: "InterSemiBold",
       fontSize: 16,
       fontWeight: "600",
       lineHeight: 24,
     },
     normal: {
-      fontFamily: "Inter",
+      fontFamily: "InterRegular",
       fontSize: 14,
       fontWeight: "400",
+      lineHeight: 20,
     },
   },
   colors: {
-    primary: "#3498db",
-    secondary: "#2ecc71",
-    background: "#ecf0f1",
-    text: "#2c3e50",
-    error: "#e74c3c",
+    primary: "#fff",
+    secondary: "#000",
+    primaryBackground: "#fff",
+    primaryMuted: "#f0f0f0",
+    muted: "gray",
   },
-};
+} as const;
 
 export default theme;

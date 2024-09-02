@@ -1,4 +1,6 @@
+import { ThemeProvider } from "@/context/ThemeProvider";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -20,6 +22,8 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    InterRegular: require("../assets/fonts/Inter-Regular.ttf"),
+    InterSemiBold: require("../assets/fonts/Inter-SemiBold.ttf"),
     ...FontAwesome.font,
   });
 
@@ -42,9 +46,14 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const queryClient = new QueryClient();
   return (
-    <Stack>
-      <Stack.Screen name="index" />
-    </Stack>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <Stack>
+          <Stack.Screen name="index" />
+        </Stack>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
